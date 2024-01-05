@@ -33,9 +33,7 @@ namespace TouhouJam.Player
         {
             _rb = GetComponent<Rigidbody2D>();
             _levelMask = 1 << LayerMask.NameToLayer("Level");
-
-            _initialPos = transform.position;
-
+            
             foreach (PlayerAction action in (PlayerAction[])Enum.GetValues(typeof(PlayerAction)))
             {
                 _canDoAction.Add(action, true);
@@ -45,6 +43,8 @@ namespace TouhouJam.Player
         private void Start()
         {
             SwitchToBird(LevelData.current.availableBirds[0]);
+            transform.position = GameObject.FindGameObjectWithTag("SpawnPoint").transform.position;
+            _initialPos = transform.position;
         }
 
         private void FixedUpdate()
@@ -57,13 +57,21 @@ namespace TouhouJam.Player
         {
             if (collision.collider.CompareTag("Trap"))
             {
-                _rb.velocity = Vector2.zero;
-                transform.position = _initialPos;
+                Loose();
             }
             else if (collision.collider.CompareTag("FinishLine"))
             {
                 _rb.velocity = Vector2.zero;
                 GameManager.Instance.Win();
+            }
+        }
+
+        public void Loose()
+        {
+            if (!GameManager.Instance.DidWon)
+            {
+                _rb.velocity = Vector2.zero;
+                transform.position = _initialPos;
             }
         }
 

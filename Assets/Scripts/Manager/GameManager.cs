@@ -17,7 +17,9 @@ namespace TouhouJam.Manager
         [SerializeField]
         private GameObject _victoryPanel;
 
-        public bool CanMove => !VNManager.Instance.IsPlayingStory && !_victoryPanel.activeInHierarchy;
+        public bool CanMove => !VNManager.Instance.IsPlayingStory && !DidWon;
+
+        public bool DidWon => _victoryPanel.activeInHierarchy;
 
         public void Win()
         {
