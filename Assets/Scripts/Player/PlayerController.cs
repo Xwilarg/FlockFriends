@@ -26,5 +26,13 @@ namespace TouhouJam.Player
         {
             _movX = value.ReadValue<Vector2>().x;
         }
+
+        public void OnJump(InputAction.CallbackContext value)
+        {
+            if (value.performed)
+            {
+                // TODO
+            }
+        }
     }
 }
