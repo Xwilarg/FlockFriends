@@ -3,7 +3,7 @@
 
 The feathered friend got to the top of Youkai Mountain.
 
-Aya Mystia.Other friends. Im so glad you made it. #speaker Megumu #emotion happy
+Aya Mystia. Other friends. I'm so glad you made it. #speaker Megumu #emotion happy
 
 We sure did and it was quite fun. #speaker Aya #emotion happy
 
