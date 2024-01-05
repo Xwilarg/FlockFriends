@@ -8,6 +8,8 @@ namespace TouhouJam.Manager
     {
         public static GameManager Instance { get; private set; }
 
+        public static int NextLevel => 1;
+
         [SerializeField]
         private TextAsset _intro;
 
@@ -17,11 +19,15 @@ namespace TouhouJam.Manager
         {
             Instance = this;
             SceneManager.LoadScene("VN", LoadSceneMode.Additive);
+            SceneManager.LoadScene($"{NextLevel:00}", LoadSceneMode.Additive);
         }
 
         private void Start()
         {
-            VNManager.Instance.ShowStory(_intro, null);
+            if (NextLevel == 1)
+            {
+                VNManager.Instance.ShowStory(_intro, null);
+            }
         }
     }
 }
