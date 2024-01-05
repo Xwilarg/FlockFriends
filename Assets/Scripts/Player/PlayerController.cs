@@ -42,9 +42,6 @@ namespace TouhouJam.Player
             _rb.velocity = new(_movX * _info.Speed, _rb.velocity.y);
         }
 
-        private bool IsOnGround
-            => _jumpOffsets.Any(o => Physics2D.Raycast(transform.position + (Vector3.right * o), Vector2.down, _jumpMaxDistance, _levelMask).collider != null);
-
         private IEnumerator ReloadAction(PlayerAction action, float duration)
         {
             _canDoAction[action] = false;
@@ -69,6 +66,28 @@ namespace TouhouJam.Player
         private enum PlayerAction
         {
             Jump
+        }
+
+        private bool IsOnGround
+            => _jumpOffsets.Any(o => Physics2D.Raycast(transform.position + (Vector3.right * o), Vector2.down, _jumpMaxDistance, _levelMask).collider != null);
+
+        private void OnDrawGizmos()
+        {
+            foreach (var o in _jumpOffsets)
+            {
+                var centerPoint = transform.position + (Vector3.right * o);
+                var hit = Physics2D.Raycast(centerPoint, Vector2.down, _jumpMaxDistance, _levelMask);
+                if (hit.collider != null)
+                {
+                    Gizmos.color = Color.red;
+                    Gizmos.DrawLine(centerPoint, hit.point);
+                }
+                else
+                {
+                    Gizmos.color = Color.black;
+                    Gizmos.DrawLine(centerPoint, centerPoint + (Vector3.down * _jumpMaxDistance));
+                }
+            }
         }
     }
 }
