@@ -61,7 +61,7 @@ namespace TouhouJam.VN
 
         public void ShowStory(TextAsset asset, Action onDone)
         {
-            Debug.Log($"[STORY] Playing {asset.name}");
+            Debug.Log($"[NOV] Playing {asset.name}");
             _currentCharacter = null;
             _onDone = onDone;
             _story = new(asset.text);
@@ -85,12 +85,12 @@ namespace TouhouJam.VN
                         _currentCharacter = _characters.FirstOrDefault(x => x.Name.ToUpperInvariant() == content);
                         if (_currentCharacter == null)
                         {
-                            Debug.LogError($"[STORY] Unable to find character {_currentCharacter}");
+                            Debug.LogError($"[NOV] Unable to find character {_currentCharacter}");
                         }
                         break;
 
                     default:
-                        Debug.LogError($"Unknown story key: {s[0]}");
+                        Debug.LogError($"[NOV] Unknown story key: {s[0]}");
                         break;
                 }
             }
