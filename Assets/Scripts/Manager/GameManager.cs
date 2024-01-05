@@ -8,7 +8,7 @@ namespace TouhouJam.Manager
     {
         public static GameManager Instance { get; private set; }
 
-        public static int NextLevel => 1;
+        public static int NextLevel { set; get; } = 1;
 
         [SerializeField]
         private TextAsset _intro;
