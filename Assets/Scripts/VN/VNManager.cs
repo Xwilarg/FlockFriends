@@ -1,6 +1,5 @@
 ﻿using Ink.Runtime;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using TouhouJam.SO;
@@ -14,12 +13,14 @@ namespace TouhouJam.VN
     {
         public static VNManager Instance { private set; get; }
 
-        [SerializeField]
-        private TextDisplay _display;
-
+        [Header("Characters")]
         [SerializeField]
         private VNCharacterInfo[] _characters;
         private VNCharacterInfo _currentCharacter;
+
+        [Header("Components")]
+        [SerializeField]
+        private TextDisplay _display;
 
         private Story _story;
 
@@ -58,7 +59,7 @@ namespace TouhouJam.VN
             }
         }
 
-        public void ShowStory(TextAsset asset, Action onDone, Action<string> onCamera = null)
+        public void ShowStory(TextAsset asset, Action onDone)
         {
             Debug.Log($"[STORY] Playing {asset.name}");
             _currentCharacter = null;
@@ -131,6 +132,12 @@ namespace TouhouJam.VN
 
         public void ToggleSkip(bool value)
             => _isSkipEnabled = value;
+
+        public void OnToggleSkip(InputAction.CallbackContext value)
+        {
+            if (value.phase == InputActionPhase.Started) ToggleSkip(true);
+            else if (value.phase == InputActionPhase.Canceled) ToggleSkip(false);
+        }
 
         public void OnNextDialogue(InputAction.CallbackContext value)
         {

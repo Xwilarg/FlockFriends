@@ -2,8 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TouhouJam.Manager;
 using TouhouJam.SO;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -39,7 +39,8 @@ namespace TouhouJam.Player
 
         private void FixedUpdate()
         {
-            _rb.velocity = new(_movX * _info.Speed, _rb.velocity.y);
+            var movX = GameManager.Instance.CanMove ? _movX : 0f;
+            _rb.velocity = new(movX * _info.Speed, _rb.velocity.y);
         }
 
         private IEnumerator ReloadAction(PlayerAction action, float duration)
@@ -56,7 +57,7 @@ namespace TouhouJam.Player
 
         public void OnJump(InputAction.CallbackContext value)
         {
-            if (value.performed && IsOnGround)
+            if (value.performed && IsOnGround && GameManager.Instance.CanMove)
             {
                 _rb.AddForce(Vector2.up * _info.JumpForce, ForceMode2D.Impulse);
                 StartCoroutine(ReloadAction(PlayerAction.Jump, _info.JumpReloadTime));
