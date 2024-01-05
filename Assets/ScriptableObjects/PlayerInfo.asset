@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PlayerInfo
   m_EditorClassIdentifier: 
   Speed: 7.5
-  JumpForce: 10
+  JumpForce: 12
   JumpReloadTime: 2
