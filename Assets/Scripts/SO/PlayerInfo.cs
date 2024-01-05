@@ -6,5 +6,8 @@ namespace TouhouJam.SO
     public class PlayerInfo : ScriptableObject
     {
         public float Speed;
+        public float JumpForce;
+
+        public float JumpReloadTime;
     }
 }
