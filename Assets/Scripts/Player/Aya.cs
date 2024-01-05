@@ -43,7 +43,7 @@ namespace TouhouJam.Player
 
 		private void Raycast(ref float minDistance, bool horizontal, Vector2 direction, float p, Bounds bb) {
 			Vector2 origin = horizontal ? new(bb.center.x, p) : new(p, bb.center.y);
-			var hit = Physics2D.Raycast(origin, direction);
+			var hit = Physics2D.Raycast(origin, direction, float.PositiveInfinity, 1 << 7);
 			if (hit.collider)
 				minDistance = Mathf.Min(minDistance, hit.distance);
 		}

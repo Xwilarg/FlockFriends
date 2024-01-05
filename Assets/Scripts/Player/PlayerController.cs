@@ -33,7 +33,7 @@ namespace TouhouJam.Player
         {
             _rb = GetComponent<Rigidbody2D>();
             _levelMask = 1 << LayerMask.NameToLayer("Level");
-            
+
             foreach (PlayerAction action in (PlayerAction[])Enum.GetValues(typeof(PlayerAction)))
             {
                 _canDoAction.Add(action, true);
@@ -45,6 +45,8 @@ namespace TouhouJam.Player
             SwitchToBird(LevelData.current.availableBirds[0]);
             transform.position = GameObject.FindGameObjectWithTag("SpawnPoint").transform.position;
             _initialPos = transform.position;
+            
+            Destroy(GetComponent<SpriteRenderer>());
         }
 
         private void FixedUpdate()

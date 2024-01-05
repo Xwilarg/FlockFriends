@@ -405,13 +405,53 @@ MonoBehaviour:
     m_ActionId: 3c7d56cf-3852-402f-a0ca-50ddbde6c6c0
     m_ActionName: VN/Skip[/Keyboard/leftShift]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3676888944838869984}
+        m_TargetAssemblyTypeName: TouhouJam.Player.PlayerController, Assembly-CSharp
+        m_MethodName: OnGoNextBird
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 8c3c8c2b-8068-42b2-bb85-d2f92b58c9bd
     m_ActionName: Player/GoNextBird[/Keyboard/pageDown,/Gamepad/rightShoulder]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3676888944838869984}
+        m_TargetAssemblyTypeName: TouhouJam.Player.PlayerController, Assembly-CSharp
+        m_MethodName: OnGoPrevBird
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: bd20acf2-bf6e-4e4c-8390-f0b36de280c3
     m_ActionName: Player/GoPrevBird[/Keyboard/pageUp,/Gamepad/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3676888944838869984}
+        m_TargetAssemblyTypeName: TouhouJam.Player.PlayerController, Assembly-CSharp
+        m_MethodName: OnUseBirdPower
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e831c950-333c-40ec-9f19-70e3c24608cb
+    m_ActionName: Player/UseBirdPower[/Keyboard/x,/Gamepad/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
