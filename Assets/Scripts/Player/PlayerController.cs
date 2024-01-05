@@ -42,7 +42,7 @@ namespace TouhouJam.Player
 
         private void Start()
         {
-            SwitchToBird(LevelData.current.availableBirds[0]);
+            SwitchToBird(LevelData.current.AvailableBirds[0]);
             transform.position = GameObject.FindGameObjectWithTag("SpawnPoint").transform.position;
             _initialPos = transform.position;
 
@@ -145,19 +145,19 @@ namespace TouhouJam.Player
 
         public void OnGoNextBird(InputAction.CallbackContext ctx) {
             if (ctx.performed && LockBirdChangeActionIfAvailable()) {
-                int index = LevelData.current.availableBirds.IndexOf(currentBird.BirdEnum);
-                index = (index + 1) % LevelData.current.availableBirds.Count;
-                SwitchToBird(LevelData.current.availableBirds[index]);
+                int index = LevelData.current.AvailableBirds.IndexOf(currentBird.BirdEnum);
+                index = (index + 1) % LevelData.current.AvailableBirds.Count;
+                SwitchToBird(LevelData.current.AvailableBirds[index]);
             }
         }
 
         public void OnGoPrevBird(InputAction.CallbackContext ctx) {
             if (ctx.performed && LockBirdChangeActionIfAvailable()) {
-                int index = LevelData.current.availableBirds.IndexOf(currentBird.BirdEnum);
+                int index = LevelData.current.AvailableBirds.IndexOf(currentBird.BirdEnum);
                 if (index == 0)
-                    index = LevelData.current.availableBirds.Count;
+                    index = LevelData.current.AvailableBirds.Count;
                 index--;
-                SwitchToBird(LevelData.current.availableBirds[index]);
+                SwitchToBird(LevelData.current.AvailableBirds[index]);
             }
         }
 

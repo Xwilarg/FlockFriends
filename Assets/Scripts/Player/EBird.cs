@@ -2,6 +2,9 @@ namespace TouhouJam.Player
 {
 	public enum EBird
 	{
-		Mystia, Aya
+		None = 0,
+
+		Mystia,
+		Aya
 	}
 }
