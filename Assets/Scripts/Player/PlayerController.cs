@@ -1,10 +1,14 @@
+using TouhouJam.SO;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace TouhouJam
+namespace TouhouJam.Player
 {
     public class PlayerController : MonoBehaviour
     {
+        [SerializeField]
+        private PlayerInfo _player;
+
         private Rigidbody2D _rb;
         private float _movX;
 
@@ -15,7 +19,7 @@ namespace TouhouJam
 
         private void FixedUpdate()
         {
-            _rb.velocity = new(_movX, _rb.velocity.y);
+            _rb.velocity = new(_movX * _player.Speed, _rb.velocity.y);
         }
 
         public void OnMove(InputAction.CallbackContext value)
