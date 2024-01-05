@@ -45,9 +45,9 @@ namespace TouhouJam.Manager
 
         private void Start()
         {
-            if (NextLevel == 1)
+            if (Levels[NextLevel - 1].IntroStory != null)
             {
-                VNManager.Instance.ShowStory(_intro, null);
+                VNManager.Instance.ShowStory(Levels[NextLevel - 1].IntroStory, null);
             }
         }
 
