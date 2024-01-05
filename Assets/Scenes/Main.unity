@@ -355,6 +355,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _intro: {fileID: 4900000, guid: d700cf88786ca5241b56b9ebcc1d0494, type: 3}
   _victoryPanel: {fileID: 891915889}
+  _levels:
+  - IntroStory: {fileID: 4900000, guid: d700cf88786ca5241b56b9ebcc1d0494, type: 3}
+    UnlockedBird: 1
+  - IntroStory: {fileID: 0}
+    UnlockedBird: 2
+  - IntroStory: {fileID: 0}
+    UnlockedBird: 0
+  - IntroStory: {fileID: 0}
+    UnlockedBird: 0
+  - IntroStory: {fileID: 0}
+    UnlockedBird: 0
 --- !u!4 &460839552
 Transform:
   m_ObjectHideFlags: 0
@@ -382,7 +393,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4bcd0d90b7b45027ac6206f1ddb4784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _newBirds: 0100000002000000000000000000000000000000
 --- !u!1 &480107289
 GameObject:
   m_ObjectHideFlags: 0

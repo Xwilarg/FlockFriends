@@ -17,6 +17,10 @@ namespace TouhouJam.Manager
         [SerializeField]
         private GameObject _victoryPanel;
 
+        [SerializeField]
+        private LevelInfo[] _levels;
+        public LevelInfo[] Levels => _levels;
+
         public bool CanMove => !VNManager.Instance.IsPlayingStory && !DidWon;
 
         public bool DidWon => _victoryPanel.activeInHierarchy;

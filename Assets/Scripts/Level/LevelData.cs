@@ -8,9 +8,6 @@ namespace TouhouJam.Level
 {
 	public class LevelData : MonoBehaviour
 	{
-		[SerializeField]
-		private EBird[] _newBirds;
-
 		public List<EBird> AvailableBirds { private set; get; }
 
 		public static LevelData current;
@@ -18,9 +15,13 @@ namespace TouhouJam.Level
 		void Awake()
 		{
             current = this;
-			AvailableBirds = _newBirds.Take(GameManager.NextLevel).Where(x => x != EBird.None).ToList();
-
-			Debug.Log($"[LEV] Loading birds {string.Join(", ", AvailableBirds)}");
         }
-	}
+
+        private void Start()
+        {
+            AvailableBirds = GameManager.Instance.Levels.Take(GameManager.NextLevel).Select(x => x.UnlockedBird).Where(x => x != EBird.None).ToList();
+
+            Debug.Log($"[LEV] Loading birds {string.Join(", ", AvailableBirds)}");
+        }
+    }
 }
