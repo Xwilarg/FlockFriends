@@ -54,6 +54,11 @@ namespace TouhouJam.Player
                 _rb.velocity = Vector2.zero;
                 transform.position = _initialPos;
             }
+            else if (collision.collider.CompareTag("FinishLine"))
+            {
+                _rb.velocity = Vector2.zero;
+                GameManager.Instance.Win();
+            }
         }
 
         private IEnumerator ReloadAction(PlayerAction action, float duration)

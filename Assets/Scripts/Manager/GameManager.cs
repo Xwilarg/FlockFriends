@@ -13,7 +13,15 @@ namespace TouhouJam.Manager
         [SerializeField]
         private TextAsset _intro;
 
-        public bool CanMove => !VNManager.Instance.IsPlayingStory;
+        [SerializeField]
+        private GameObject _victoryPanel;
+
+        public bool CanMove => !VNManager.Instance.IsPlayingStory && !_victoryPanel.activeInHierarchy;
+
+        public void Win()
+        {
+            _victoryPanel.SetActive(true);
+        }
 
         private void Awake()
         {
@@ -28,6 +36,22 @@ namespace TouhouJam.Manager
             {
                 VNManager.Instance.ShowStory(_intro, null);
             }
+        }
+
+        public void Replay()
+        {
+            SceneManager.LoadScene("Main");
+        }
+
+        public void PlayNextLevel()
+        {
+            NextLevel++;
+            SceneManager.LoadScene("Main");
+        }
+
+        public void BackToMenu()
+        {
+            SceneManager.LoadScene("LevelSelector");
         }
     }
 }
