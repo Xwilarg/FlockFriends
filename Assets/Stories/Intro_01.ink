@@ -18,4 +18,6 @@ How about I help you, I also have to give other invite to the birds along the wa
 I will be glad lets get going #speaker Mystia #emotion happy
 
 The two travel off to Youkai Mountain.
+
+Mystia starts the flock. Use her to blind enemies.
 ->DONE

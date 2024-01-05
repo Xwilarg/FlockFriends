@@ -7,6 +7,7 @@ namespace TouhouJam.Manager
     public class LevelInfo
     {
         public TextAsset IntroStory;
+        public TextAsset OutroStory;
         public EBird UnlockedBird;
     }
 }
