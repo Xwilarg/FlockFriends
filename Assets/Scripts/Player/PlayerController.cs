@@ -45,7 +45,7 @@ namespace TouhouJam.Player
             SwitchToBird(LevelData.current.availableBirds[0]);
             transform.position = GameObject.FindGameObjectWithTag("SpawnPoint").transform.position;
             _initialPos = transform.position;
-            
+
             Destroy(GetComponent<SpriteRenderer>());
         }
 
@@ -77,12 +77,15 @@ namespace TouhouJam.Player
             }
         }
 
-        private IEnumerator ReloadAction(PlayerAction action, float duration)
+        private IEnumerator SeqReloadAction(PlayerAction action, float duration)
         {
             _canDoAction[action] = false;
             yield return new WaitForSeconds(duration);
             _canDoAction[action] = true;
         }
+
+        private void ReloadAction(PlayerAction action, float duration) =>
+            StartCoroutine(SeqReloadAction(action, duration)); 
 
         public void OnMove(InputAction.CallbackContext value)
         {
@@ -94,13 +97,13 @@ namespace TouhouJam.Player
             if (value.performed && IsOnGround && GameManager.Instance.CanMove)
             {
                 _rb.AddForce(Vector2.up * _info.JumpForce, ForceMode2D.Impulse);
-                StartCoroutine(ReloadAction(PlayerAction.Jump, _info.JumpReloadTime));
+                ReloadAction(PlayerAction.Jump, _info.JumpReloadTime);
             }
         }
 
         private enum PlayerAction
         {
-            Jump, ChangeBird
+            Jump, ChangeBird, UseAbility
         }
 
         private bool IsOnGround
@@ -140,16 +143,16 @@ namespace TouhouJam.Player
             currentBird = targetBird;
         }
 
-        public void OnGoNextBird(InputAction.CallbackContext _) {
-            if (LockBirdChangeActionIfAvailable()) {
+        public void OnGoNextBird(InputAction.CallbackContext ctx) {
+            if (ctx.performed && LockBirdChangeActionIfAvailable()) {
                 int index = LevelData.current.availableBirds.IndexOf(currentBird.BirdEnum);
                 index = (index + 1) % LevelData.current.availableBirds.Count;
                 SwitchToBird(LevelData.current.availableBirds[index]);
             }
         }
 
-        public void OnGoPrevBird(InputAction.CallbackContext _) {
-            if (LockBirdChangeActionIfAvailable()) {
+        public void OnGoPrevBird(InputAction.CallbackContext ctx) {
+            if (ctx.performed && LockBirdChangeActionIfAvailable()) {
                 int index = LevelData.current.availableBirds.IndexOf(currentBird.BirdEnum);
                 if (index == 0)
                     index = LevelData.current.availableBirds.Count;
@@ -160,15 +163,19 @@ namespace TouhouJam.Player
 
         bool LockBirdChangeActionIfAvailable() {
             if (GameManager.Instance.CanMove && _canDoAction[PlayerAction.ChangeBird]) {
-                StartCoroutine(ReloadAction(PlayerAction.ChangeBird, Bird.SWITCH_BIRD_ANIMATION_TIME));
+                ReloadAction(PlayerAction.ChangeBird, Bird.SWITCH_BIRD_ANIMATION_TIME);
+                ReloadAction(PlayerAction.UseAbility, Bird.SWITCH_BIRD_ANIMATION_TIME);
                 return true;
             }
             return false;
         }
 
-        public void OnUseBirdPower(InputAction.CallbackContext _) {
-            if (GameManager.Instance.CanMove)
+        public void OnUseBirdPower(InputAction.CallbackContext ctx) {
+            if (ctx.performed && GameManager.Instance.CanMove && _canDoAction[PlayerAction.UseAbility])
+            {
                 currentBird.UseAbility();
+                ReloadAction(PlayerAction.UseAbility, currentBird.cooldownTime);
+            }
         }
     }
 }
