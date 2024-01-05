@@ -59,7 +59,7 @@ namespace TouhouJam.Player
 
         public void OnJump(InputAction.CallbackContext value)
         {
-            if (value.performed && !IsOnGround)
+            if (value.performed && IsOnGround)
             {
                 _rb.AddForce(Vector2.up * _info.JumpForce, ForceMode2D.Impulse);
                 StartCoroutine(ReloadAction(PlayerAction.Jump, _info.JumpReloadTime));
