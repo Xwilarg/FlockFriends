@@ -1404,7 +1404,7 @@ GameObject:
   - component: {fileID: 2039291110}
   - component: {fileID: 2039291109}
   m_Layer: 5
-  m_Name: Title (1)
+  m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1426,8 +1426,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -40}
-  m_SizeDelta: {x: -40, y: -120}
+  m_AnchoredPosition: {x: 0, y: -27.5}
+  m_SizeDelta: {x: -40, y: -95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2039291109
 MonoBehaviour:
@@ -1455,6 +1455,8 @@ MonoBehaviour:
 
 
     Programming:
+
+    StellatedCUBE
 
     Zirk
 
@@ -1492,8 +1494,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
