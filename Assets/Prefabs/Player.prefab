@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888b8225568d1034285fdca110b3edf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldownTime: 0.2
   idle: {fileID: 21300000, guid: 50b0c9195cebd856eba1fa858e0dfa6e, type: 3}
 --- !u!1 &3185944527776836827
 GameObject:
@@ -538,6 +539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 274311b2ed253fea3be521e61225e02d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldownTime: 0.5
   idle: {fileID: 21300000, guid: 0070648d2510b7cb0b936462a5c547bb, type: 3}
 --- !u!1 &5651777815300970742
 GameObject:
