@@ -6,6 +6,7 @@ using TouhouJam.Manager;
 using TouhouJam.SO;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TouhouJam.Level;
 
 namespace TouhouJam.Player
 {
@@ -16,7 +17,7 @@ namespace TouhouJam.Player
 
         // Movements
         private Rigidbody2D _rb;
-        private float _movX;
+        public Vector2 InputDirection { get; private set; }
 
         // Jump info
         private const float _jumpMaxDistance = 1.01f;
@@ -41,9 +42,14 @@ namespace TouhouJam.Player
             }
         }
 
+        private void Start()
+        {
+            SwitchToBird(LevelData.current.availableBirds[0]);
+        }
+
         private void FixedUpdate()
         {
-            var movX = GameManager.Instance.CanMove ? _movX : 0f;
+            var movX = GameManager.Instance.CanMove ? InputDirection.x : 0f;
             _rb.velocity = new(movX * _info.Speed, _rb.velocity.y);
         }
 
@@ -70,7 +76,7 @@ namespace TouhouJam.Player
 
         public void OnMove(InputAction.CallbackContext value)
         {
-            _movX = value.ReadValue<Vector2>().x;
+            InputDirection = value.ReadValue<Vector2>();
         }
 
         public void OnJump(InputAction.CallbackContext value)
@@ -84,7 +90,7 @@ namespace TouhouJam.Player
 
         private enum PlayerAction
         {
-            Jump
+            Jump, ChangeBird
         }
 
         private bool IsOnGround
@@ -107,6 +113,52 @@ namespace TouhouJam.Player
                     Gizmos.DrawLine(centerPoint, centerPoint + (Vector3.down * _jumpMaxDistance));
                 }
             }
+        }
+
+
+        Bird currentBird;
+
+        void SwitchToBird(EBird target) {
+            Bird targetBird = transform.GetChild((int)target).GetComponent<Bird>();
+            targetBird.gameObject.SetActive(true);
+
+            if (currentBird) {
+                currentBird.AnimateTransitionFrom();
+                targetBird.AnimateTransitionTo();
+            }
+
+            currentBird = targetBird;
+        }
+
+        public void OnGoNextBird(InputAction.CallbackContext _) {
+            if (LockBirdChangeActionIfAvailable()) {
+                int index = LevelData.current.availableBirds.IndexOf(currentBird.BirdEnum);
+                index = (index + 1) % LevelData.current.availableBirds.Count;
+                SwitchToBird(LevelData.current.availableBirds[index]);
+            }
+        }
+
+        public void OnGoPrevBird(InputAction.CallbackContext _) {
+            if (LockBirdChangeActionIfAvailable()) {
+                int index = LevelData.current.availableBirds.IndexOf(currentBird.BirdEnum);
+                if (index == 0)
+                    index = LevelData.current.availableBirds.Count;
+                index--;
+                SwitchToBird(LevelData.current.availableBirds[index]);
+            }
+        }
+
+        bool LockBirdChangeActionIfAvailable() {
+            if (GameManager.Instance.CanMove && _canDoAction[PlayerAction.ChangeBird]) {
+                StartCoroutine(ReloadAction(PlayerAction.ChangeBird, Bird.SWITCH_BIRD_ANIMATION_TIME));
+                return true;
+            }
+            return false;
+        }
+
+        public void OnUseBirdPower(InputAction.CallbackContext _) {
+            if (GameManager.Instance.CanMove)
+                currentBird.UseAbility();
         }
     }
 }
