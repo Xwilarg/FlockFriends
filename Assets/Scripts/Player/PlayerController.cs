@@ -26,10 +26,14 @@ namespace TouhouJam.Player
 
         private readonly Dictionary<PlayerAction, bool> _canDoAction = new();
 
+        private Vector2 _initialPos;
+
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
             _levelMask = 1 << LayerMask.NameToLayer("Level");
+
+            _initialPos = transform.position;
 
             foreach (PlayerAction action in (PlayerAction[])Enum.GetValues(typeof(PlayerAction)))
             {
@@ -41,6 +45,15 @@ namespace TouhouJam.Player
         {
             var movX = GameManager.Instance.CanMove ? _movX : 0f;
             _rb.velocity = new(movX * _info.Speed, _rb.velocity.y);
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.collider.CompareTag("Trap"))
+            {
+                _rb.velocity = Vector2.zero;
+                transform.position = _initialPos;
+            }
         }
 
         private IEnumerator ReloadAction(PlayerAction action, float duration)
