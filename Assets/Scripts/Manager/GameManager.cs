@@ -1,4 +1,5 @@
-﻿using TouhouJam.VN;
+﻿using TouhouJam.Persistency;
+using TouhouJam.VN;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,6 +22,12 @@ namespace TouhouJam.Manager
         public void Win()
         {
             _victoryPanel.SetActive(true);
+            NextLevel++;
+
+            if (PersistencyManager.Instance.SaveData.NextUnlockedLevel < NextLevel + 1)
+            {
+                PersistencyManager.Instance.SaveData.NextUnlockedLevel = NextLevel + 1;
+            }
         }
 
         private void Awake()
@@ -45,7 +52,6 @@ namespace TouhouJam.Manager
 
         public void PlayNextLevel()
         {
-            NextLevel++;
             SceneManager.LoadScene("Main");
         }
 
