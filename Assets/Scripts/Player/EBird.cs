@@ -5,6 +5,7 @@ namespace TouhouJam.Player
 		None = -1,
 		Mystia,
 		Aya,
+		Kutaka,
 		Hatate,
 		Okuu
 	}
