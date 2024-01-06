@@ -10,6 +10,7 @@ namespace TouhouJam.Player
 
 		public override void UseAbility() {
 			blindFrames = 2;
+			GetComponent<ParticleSystem>().Play();
 		}
 
 		void FixedUpdate() {

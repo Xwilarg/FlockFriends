@@ -12,6 +12,8 @@ namespace TouhouJam.Player
 {
     public class PlayerController : MonoBehaviour
     {
+        public static PlayerController instance;
+
         [SerializeField]
         private PlayerInfo _info;
 
@@ -33,6 +35,8 @@ namespace TouhouJam.Player
 
         private void Awake()
         {
+            instance = this;
+
             _rb = GetComponent<Rigidbody2D>();
             _levelMask = 1 << LayerMask.NameToLayer("Level");
 
@@ -44,7 +48,7 @@ namespace TouhouJam.Player
 
         private void Start()
         {
-            SwitchToBird(LevelData.current.AvailableBirds[0]);
+            SwitchToBird(EBird.Mystia);
             transform.position = GameObject.FindGameObjectWithTag("SpawnPoint").transform.position;
             _initialPos = transform.position;
 
@@ -62,15 +66,18 @@ namespace TouhouJam.Player
             }
 
             _rb.velocity = new(movX * _info.Speed, _rb.velocity.y);
+
+            /*
             _anim.SetFloat("X", Mathf.Abs(movX));
             _anim.SetFloat("Y", Mathf.Clamp01(_rb.velocity.y));
+            */
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.collider.CompareTag("Trap"))
             {
-                Loose();
+                Lose();
             }
             else if (collision.collider.CompareTag("FinishLine"))
             {
@@ -79,12 +86,15 @@ namespace TouhouJam.Player
             }
         }
 
-        public void Loose()
+        public void Lose()
         {
             if (!GameManager.Instance.DidWon)
             {
                 _rb.velocity = Vector2.zero;
                 transform.position = _initialPos;
+
+                foreach (var agent in FindObjectsOfType<Agent>())
+                    agent.OnReset();
             }
         }
 
@@ -152,6 +162,7 @@ namespace TouhouJam.Player
             }
 
             currentBird = targetBird;
+            _sr = currentBird.renderer;
         }
 
         public void OnGoNextBird(InputAction.CallbackContext ctx) {

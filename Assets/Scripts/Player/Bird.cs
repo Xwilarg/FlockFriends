@@ -14,7 +14,7 @@ namespace TouhouJam.Player
 		public EBird BirdEnum { get; private set; }
 
 		protected PlayerController player;
-		new protected SpriteRenderer renderer;
+		new public SpriteRenderer renderer;
 
 		public void AnimateTransitionFrom() =>
 			gameObject.AddComponent<TransitionFromAnimation>().renderer = renderer.transform;
