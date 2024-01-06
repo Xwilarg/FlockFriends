@@ -6,7 +6,7 @@ namespace TouhouJam.Level.Enemies
 		float whenCanLeap;
 
 		void FixedUpdate() {
-			var hit = Physics2D.Raycast();
+			//var hit = Physics2D.Raycast();
 		}
 	}
 }
