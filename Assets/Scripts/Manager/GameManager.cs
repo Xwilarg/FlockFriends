@@ -32,7 +32,8 @@ namespace TouhouJam.Manager
             {
                 if (NextLevel == 6)
                 {
-                    // TODO special thing wow
+                    SceneManager.LoadScene("MainMenu");
+                    return;
                 }
 
                 _victoryPanel.SetActive(true);
