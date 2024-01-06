@@ -353,7 +353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dee7ef7c7d7e524b83b708d4a64b108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intro: {fileID: 4900000, guid: d700cf88786ca5241b56b9ebcc1d0494, type: 3}
   _victoryPanel: {fileID: 891915889}
   _levels:
   - IntroStory: {fileID: 4900000, guid: 3d6f68cb7f337e44494bdbb7dab4e163, type: 3}
@@ -367,10 +366,10 @@ MonoBehaviour:
     UnlockedBird: -1
   - IntroStory: {fileID: 4900000, guid: fb083c2ce43668b4397dc7334a395a44, type: 3}
     OutroStory: {fileID: 4900000, guid: ef7f815fa04fa18409668e0e86b09a68, type: 3}
-    UnlockedBird: -1
+    UnlockedBird: 2
   - IntroStory: {fileID: 4900000, guid: a9ecb6bed9f061540a520414f8d98508, type: 3}
     OutroStory: {fileID: 4900000, guid: 766b88b3d85b37d40a07c581522046fa, type: 3}
-    UnlockedBird: -1
+    UnlockedBird: 3
   - IntroStory: {fileID: 4900000, guid: 759548165e7e88f47905ffbc39688af6, type: 3}
     OutroStory: {fileID: 4900000, guid: fa4940721fda4654b9037abe471b6329, type: 3}
     UnlockedBird: -1
@@ -1289,7 +1288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enabled: 1
-  _startLevel: 6
+  _startLevel: 4
   _skipIntro: 1
 --- !u!1 &1049363155
 GameObject:
@@ -2014,10 +2013,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3676888944838869980, guid: ae2b596a061b305488dd488254be8586, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3676888944838869980, guid: ae2b596a061b305488dd488254be8586, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -4,6 +4,8 @@ namespace TouhouJam.Player
 	{
 		None = -1,
 		Mystia,
-		Aya
+		Aya,
+		Hatate,
+		Okuu
 	}
 }

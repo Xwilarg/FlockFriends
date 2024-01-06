@@ -229,7 +229,7 @@
                 {
                     "name": "",
                     "id": "6ec92ff9-0226-4278-8564-051e0126ecc8",
-                    "path": "<Keyboard>/pageDown",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -240,7 +240,7 @@
                 {
                     "name": "",
                     "id": "eff72b2f-7dff-48ab-b2ef-416631366517",
-                    "path": "<Gamepad>/rightShoulder",
+                    "path": "<Keyboard>/ctrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",

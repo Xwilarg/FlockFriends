@@ -22,6 +22,7 @@ namespace TouhouJam.Player
         private Animator _anim;
         private SpriteRenderer _sr;
         public Vector2 InputDirection { get; private set; }
+        public Vector2 LastKnownDirection { get; private set; } = Vector2.right;
         public Vector2 Position { get => _rb.position; }
 
         // Jump info
@@ -127,6 +128,10 @@ namespace TouhouJam.Player
         public void OnMove(InputAction.CallbackContext value)
         {
             InputDirection = value.ReadValue<Vector2>();
+            if (InputDirection.magnitude != 0f)
+            {
+                LastKnownDirection = InputDirection;
+            }
         }
 
         public void OnJump(InputAction.CallbackContext value)
