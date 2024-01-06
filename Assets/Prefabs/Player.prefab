@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5743886428665813280
 Transform:
   m_ObjectHideFlags: 0
@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 8296246680212254916}
   - component: {fileID: 5504302547205513600}
   - component: {fileID: 3684553387035966526}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: Mystia
   m_TagString: Untagged
   m_Icon: {fileID: 0}

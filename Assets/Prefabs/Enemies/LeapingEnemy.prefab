@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 3955868176713751168}
   - component: {fileID: 7901546327165952294}
   - component: {fileID: 6789870026838775259}
-  m_Layer: 0
+  - component: {fileID: 8195076684974718020}
+  m_Layer: 11
   m_Name: LeapingEnemy
   m_TagString: Trap
   m_Icon: {fileID: 0}
@@ -158,3 +159,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &8195076684974718020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2598727305227036593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b153e4e3f351d67b69bab71cba2500ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idle: {fileID: 21300000, guid: 7f7ea79191dc7654eaeffacf6758816e, type: 3}
+  leaping: {fileID: 21300000, guid: 7f7ea79191dc7654eaeffacf6758816e, type: 3}
+  blinded: {fileID: 21300000, guid: 7f7ea79191dc7654eaeffacf6758816e, type: 3}

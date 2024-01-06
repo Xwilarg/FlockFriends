@@ -22,6 +22,7 @@ namespace TouhouJam.Player
         private Animator _anim;
         private SpriteRenderer _sr;
         public Vector2 InputDirection { get; private set; }
+        public Vector2 Position { get => _rb.position; }
 
         // Jump info
         private const float _jumpMaxDistance = 1.01f;
