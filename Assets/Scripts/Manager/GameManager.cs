@@ -1,4 +1,5 @@
-﻿using TouhouJam.Persistency;
+﻿using Assets.Scripts;
+using TouhouJam.Persistency;
 using TouhouJam.VN;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -63,7 +64,7 @@ namespace TouhouJam.Manager
 
         private void Start()
         {
-            if (Levels[NextLevel - 1].IntroStory != null)
+            if (Levels[NextLevel - 1].IntroStory != null && !DebugManager.Instance.SkipIntro)
             {
                 //VNManager.Instance.ShowStory(Levels[NextLevel - 1].IntroStory, null);
             }

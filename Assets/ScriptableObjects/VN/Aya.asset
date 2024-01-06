@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Aya
   DisplayName: Aya
-  Sprite: {fileID: 21300000, guid: 22335da278f316f40a4123d31ecd984a, type: 3}
+  Sprite: {fileID: 21300000, guid: 615ffb931ad53c94996269bd3f0ad8ec, type: 3}

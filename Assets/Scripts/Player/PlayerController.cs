@@ -12,7 +12,7 @@ namespace TouhouJam.Player
 {
     public class PlayerController : MonoBehaviour
     {
-        public static PlayerController instance;
+        public static PlayerController Instance { get; private set; }
 
         [SerializeField]
         private PlayerInfo _info;
@@ -35,7 +35,7 @@ namespace TouhouJam.Player
 
         private void Awake()
         {
-            instance = this;
+            Instance = this;
 
             _rb = GetComponent<Rigidbody2D>();
             _levelMask = 1 << LayerMask.NameToLayer("Level");
@@ -55,22 +55,37 @@ namespace TouhouJam.Player
             Destroy(GetComponent<SpriteRenderer>());
         }
 
+        private float FloatDirection(float x)
+        {
+            if (x == 0f) return 0f;
+            if (x < 0f) return -1f;
+            return 1f;
+        }
+
         private void FixedUpdate()
         {
-            var movX = GameManager.Instance.CanMove ? InputDirection.x : 0f;
+            // Ignore Y > 0
+            var actualDir = new Vector2(FloatDirection(InputDirection.x), InputDirection.y < 0f ? -1f : 0f).normalized;
 
-            var isMoving = movX != 0f;
-            if (isMoving)
+            var movX = GameManager.Instance.CanMove ? actualDir.x : 0f;
+
+            _rb.velocity = new(movX * _info.Speed, _rb.velocity.y + actualDir.y * 10f);
+
+            try
             {
-                _sr.flipX = movX < 0f;
+                var isMoving = movX != 0f;
+                if (isMoving)
+                {
+                    _sr.flipX = movX < 0f;
+                }
+
+                _anim.SetFloat("X", Mathf.Abs(movX));
+                _anim.SetFloat("Y", Mathf.Clamp01(_rb.velocity.y));
             }
-
-            _rb.velocity = new(movX * _info.Speed, _rb.velocity.y);
-
-            /*
-            _anim.SetFloat("X", Mathf.Abs(movX));
-            _anim.SetFloat("Y", Mathf.Clamp01(_rb.velocity.y));
-            */
+            catch (Exception)
+            {
+                // For when one day this will be fixed
+            }
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
