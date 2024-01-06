@@ -29,6 +29,11 @@ namespace TouhouJam.Manager
         {
             void onEnd()
             {
+                if (NextLevel == 6)
+                {
+                    // TODO special thing wow
+                }
+
                 _victoryPanel.SetActive(true);
                 NextLevel++;
 
