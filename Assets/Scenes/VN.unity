@@ -307,8 +307,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characters:
   - {fileID: 11400000, guid: 7942a300532f0be459069880fccdc893, type: 2}
+  - {fileID: 11400000, guid: 006f3ac4c7d26d54ab31660992c18552, type: 2}
+  - {fileID: 11400000, guid: 8c791d6502698494e9314a1d2284a79a, type: 2}
   - {fileID: 11400000, guid: 3541e023782d0994f890960c487b721b, type: 2}
   - {fileID: 11400000, guid: 80b4d250b429c0f4b8e31a301dc3b7df, type: 2}
+  - {fileID: 11400000, guid: eb017a4b6aa0be4408e6baf1f9833a00, type: 2}
+  - {fileID: 11400000, guid: 29d06b16b5ca43d44be2c322ade822c2, type: 2}
   _display: {fileID: 1490168004}
   _container: {fileID: 1477430535}
   _bustImage: {fileID: 26930131}
