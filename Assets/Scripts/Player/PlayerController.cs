@@ -17,6 +17,8 @@ namespace TouhouJam.Player
 
         // Movements
         private Rigidbody2D _rb;
+        private Animator _anim;
+        private SpriteRenderer _sr;
         public Vector2 InputDirection { get; private set; }
 
         // Jump info
@@ -52,7 +54,16 @@ namespace TouhouJam.Player
         private void FixedUpdate()
         {
             var movX = GameManager.Instance.CanMove ? InputDirection.x : 0f;
+
+            var isMoving = movX != 0f;
+            if (isMoving)
+            {
+                _sr.flipX = movX < 0f;
+            }
+
             _rb.velocity = new(movX * _info.Speed, _rb.velocity.y);
+            _anim.SetFloat("X", Mathf.Abs(movX));
+            _anim.SetFloat("Y", Mathf.Clamp01(_rb.velocity.y));
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
