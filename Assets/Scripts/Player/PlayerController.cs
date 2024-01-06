@@ -83,21 +83,14 @@ namespace TouhouJam.Player
 
             _rb.velocity = new(movX * _info.Speed, _rb.velocity.y + actualDir.y * 10f);
 
-            try
+            var isMoving = movX != 0f;
+            if (isMoving)
             {
-                var isMoving = movX != 0f;
-                if (isMoving)
-                {
-                    _sr.flipX = movX < 0f;
-                }
+                _sr.flipX = movX < 0f;
+            }
 
-                _anim.SetFloat("X", Mathf.Abs(movX));
-                _anim.SetFloat("Y", Mathf.Clamp01(_rb.velocity.y));
-            }
-            catch (Exception)
-            {
-                // For when one day this will be fixed
-            }
+            _anim.SetFloat("X", Mathf.Abs(movX));
+            _anim.SetFloat("Y", Mathf.Clamp01(_rb.velocity.y));
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -194,6 +187,7 @@ namespace TouhouJam.Player
 
             currentBird = targetBird;
             _sr = currentBird.renderer;
+            _anim = currentBird.Anim;
         }
 
         public void OnGoNextBird(InputAction.CallbackContext ctx) {

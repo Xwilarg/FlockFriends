@@ -15,6 +15,7 @@ namespace TouhouJam.Player
 
 		protected PlayerController player;
 		new public SpriteRenderer renderer;
+		public Animator Anim { private set; get; }
 
 		public void AnimateTransitionFrom() =>
 			gameObject.AddComponent<TransitionFromAnimation>().renderer = renderer.transform;
@@ -29,6 +30,7 @@ namespace TouhouJam.Player
 			BirdEnum = (EBird)transform.GetSiblingIndex();
 			player = GetComponentInParent<PlayerController>();
 			renderer = GetComponentInChildren<SpriteRenderer>();
+			Anim = GetComponentInChildren<Animator>();
 			renderer.sprite = idle;
 		}
 
