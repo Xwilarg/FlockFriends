@@ -1290,6 +1290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enabled: 1
   _startLevel: 6
+  _skipIntro: 1
 --- !u!1 &1049363155
 GameObject:
   m_ObjectHideFlags: 0
