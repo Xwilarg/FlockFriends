@@ -14,7 +14,7 @@ namespace TouhouJam.Boss
         {
             if (collision.collider.CompareTag("Player"))
             {
-                collision.collider.GetComponent<PlayerController>().Loose();
+                collision.collider.GetComponent<PlayerController>().Lose();
             }
             Destroy(gameObject);
         }
