@@ -369,7 +369,7 @@ MonoBehaviour:
     UnlockedBird: 3
   - IntroStory: {fileID: 4900000, guid: a9ecb6bed9f061540a520414f8d98508, type: 3}
     OutroStory: {fileID: 4900000, guid: 766b88b3d85b37d40a07c581522046fa, type: 3}
-    UnlockedBird: 3
+    UnlockedBird: 4
   - IntroStory: {fileID: 4900000, guid: 759548165e7e88f47905ffbc39688af6, type: 3}
     OutroStory: {fileID: 4900000, guid: fa4940721fda4654b9037abe471b6329, type: 3}
     UnlockedBird: -1
