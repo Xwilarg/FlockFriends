@@ -55,11 +55,21 @@ namespace TouhouJam.Player
             Destroy(GetComponent<SpriteRenderer>());
         }
 
+        private float FloatDirection(float x)
+        {
+            if (x == 0f) return 0f;
+            if (x < 0f) return -1f;
+            return 1f;
+        }
+
         private void FixedUpdate()
         {
-            var movX = GameManager.Instance.CanMove ? InputDirection.x : 0f;
+            // Ignore Y > 0
+            var actualDir = new Vector2(FloatDirection(InputDirection.x), InputDirection.y < 0f ? -1f : 0f).normalized;
 
-            _rb.velocity = new(movX * _info.Speed, _rb.velocity.y);
+            var movX = GameManager.Instance.CanMove ? actualDir.x : 0f;
+
+            _rb.velocity = new(movX * _info.Speed, _rb.velocity.y + actualDir.y * 10f);
 
             try
             {
