@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 64.5, y: -200}
-  m_SizeDelta: {x: 300, y: 400}
+  m_AnchoredPosition: {x: -11.5, y: -235.75}
+  m_SizeDelta: {x: 350, y: 450}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &26930131
 MonoBehaviour:
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 22335da278f316f40a4123d31ecd984a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 615ffb931ad53c94996269bd3f0ad8ec, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -437,6 +437,18 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 3c7d56cf-3852-402f-a0ca-50ddbde6c6c0
     m_ActionName: VN/Skip[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8c3c8c2b-8068-42b2-bb85-d2f92b58c9bd
+    m_ActionName: Player/GoNextBird[/Keyboard/pageDown]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bd20acf2-bf6e-4e4c-8390-f0b36de280c3
+    m_ActionName: Player/GoPrevBird[/Keyboard/pageUp]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e831c950-333c-40ec-9f19-70e3c24608cb
+    m_ActionName: Player/UseBirdPower[/Keyboard/x]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: VN
