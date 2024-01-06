@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using TouhouJam.Manager;
 using UnityEngine;
 
 namespace TouhouJam.Boss
@@ -13,7 +14,10 @@ namespace TouhouJam.Boss
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+        }
 
+        private void Start()
+        {
             StartCoroutine(LaunchPattern());
         }
 
@@ -21,6 +25,10 @@ namespace TouhouJam.Boss
         {
             while (true)
             {
+                while (!GameManager.Instance.CanMove)
+                {
+                    yield return new WaitForSeconds(.1f);
+                }
                 yield return PatternCircle();
                 yield return new WaitForSeconds(1f);
             }
