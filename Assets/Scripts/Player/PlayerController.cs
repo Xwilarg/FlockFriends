@@ -57,6 +57,16 @@ namespace TouhouJam.Player
             Destroy(GetComponent<SpriteRenderer>());
         }
 
+        // For rocket jump (Okuu)
+        public void AddPropulsionForce(float force, Vector2 direction, Vector2 contactPoint)
+        {
+            if (contactPoint.y < transform.position.y)
+            {
+                _rb.velocity = new Vector2(_rb.velocity.x, Mathf.Abs(_rb.velocity.y));
+            }
+            _rb.AddForce(direction * force, ForceMode2D.Impulse);
+        }
+
         private float FloatDirection(float x)
         {
             if (x == 0f) return 0f;
