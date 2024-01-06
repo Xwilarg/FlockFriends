@@ -79,6 +79,8 @@ namespace TouhouJam.Player
             // Ignore Y > 0
             var actualDir = new Vector2(FloatDirection(InputDirection.x), InputDirection.y < 0f ? -1f : 0f).normalized;
 
+            var onFloor = IsOnGround;
+
             var movX = GameManager.Instance.CanMove ? actualDir.x : 0f;
 
             _rb.velocity = new(movX * _info.Speed, _rb.velocity.y + actualDir.y * 10f);
@@ -89,8 +91,8 @@ namespace TouhouJam.Player
                 _sr.flipX = movX < 0f;
             }
 
-            _anim.SetFloat("X", Mathf.Abs(movX));
-            _anim.SetFloat("Y", Mathf.Clamp01(_rb.velocity.y));
+            _anim.SetFloat("X", onFloor ? Mathf.Abs(movX) : 0f);
+            _anim.SetFloat("Y", onFloor ? 0f : Mathf.Clamp01(_rb.velocity.y));
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
