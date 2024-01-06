@@ -162,7 +162,7 @@ namespace TouhouJam.Player
         }
 
         bool LockBirdChangeActionIfAvailable() {
-            if (GameManager.Instance.CanMove && _canDoAction[PlayerAction.ChangeBird]) {
+            if (GameManager.Instance.CanMove && _canDoAction[PlayerAction.ChangeBird] && LevelData.current.AvailableBirds.Count > 1) {
                 ReloadAction(PlayerAction.ChangeBird, Bird.SWITCH_BIRD_ANIMATION_TIME);
                 ReloadAction(PlayerAction.UseAbility, Bird.SWITCH_BIRD_ANIMATION_TIME);
                 return true;
