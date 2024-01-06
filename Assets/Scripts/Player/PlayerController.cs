@@ -55,15 +55,23 @@ namespace TouhouJam.Player
         {
             var movX = GameManager.Instance.CanMove ? InputDirection.x : 0f;
 
-            var isMoving = movX != 0f;
-            if (isMoving)
-            {
-                _sr.flipX = movX < 0f;
-            }
-
             _rb.velocity = new(movX * _info.Speed, _rb.velocity.y);
-            _anim.SetFloat("X", Mathf.Abs(movX));
-            _anim.SetFloat("Y", Mathf.Clamp01(_rb.velocity.y));
+
+            try
+            {
+                var isMoving = movX != 0f;
+                if (isMoving)
+                {
+                    _sr.flipX = movX < 0f;
+                }
+
+                _anim.SetFloat("X", Mathf.Abs(movX));
+                _anim.SetFloat("Y", Mathf.Clamp01(_rb.velocity.y));
+            }
+            catch (Exception)
+            {
+                // For when one day this will be fixed
+            }
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
