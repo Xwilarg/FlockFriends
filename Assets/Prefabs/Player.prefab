@@ -5624,7 +5624,7 @@ GameObject:
   - component: {fileID: 5198715300223772246}
   - component: {fileID: 3514919510348557957}
   m_Layer: 6
-  m_Name: Hatate
+  m_Name: Kutaka
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5661,4 +5661,4 @@ MonoBehaviour:
   cooldownTime: 0.2
   idle: {fileID: 21300000, guid: 7f7ea79191dc7654eaeffacf6758816e, type: 3}
   renderer: {fileID: 0}
-  _vfx: {fileID: 0}
+  _vfx: {fileID: 4761063584273851470, guid: 4d1bc7a3541f9cb46b798b076f465999, type: 3}
