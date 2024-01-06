@@ -12,6 +12,8 @@ namespace TouhouJam.Player
 {
     public class PlayerController : MonoBehaviour
     {
+        public static PlayerController Instance { get; private set; }
+
         [SerializeField]
         private PlayerInfo _info;
 
@@ -33,6 +35,8 @@ namespace TouhouJam.Player
 
         private void Awake()
         {
+            Instance = this;
+
             _rb = GetComponent<Rigidbody2D>();
             _levelMask = 1 << LayerMask.NameToLayer("Level");
 
