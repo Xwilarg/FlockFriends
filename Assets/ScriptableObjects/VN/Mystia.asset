@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Mystia
   DisplayName: Mystia
-  Sprite: {fileID: 21300000, guid: 22335da278f316f40a4123d31ecd984a, type: 3}
+  Sprite: {fileID: 21300000, guid: ad3577720967fac469204c094fef46da, type: 3}
