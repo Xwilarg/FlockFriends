@@ -27,12 +27,30 @@ namespace TouhouJam.Manager
 
         public void Win()
         {
-            _victoryPanel.SetActive(true);
-            NextLevel++;
-
-            if (PersistencyManager.Instance.SaveData.NextUnlockedLevel < NextLevel + 1)
+            void onEnd()
             {
-                PersistencyManager.Instance.SaveData.NextUnlockedLevel = NextLevel + 1;
+                if (NextLevel == 6)
+                {
+                    // TODO special thing wow
+                }
+
+                _victoryPanel.SetActive(true);
+                NextLevel++;
+
+                if (PersistencyManager.Instance.SaveData.NextUnlockedLevel < NextLevel + 1)
+                {
+                    PersistencyManager.Instance.SaveData.NextUnlockedLevel = NextLevel + 1;
+                    PersistencyManager.Instance.Save();
+                }
+            }
+
+            if (Levels[NextLevel - 1].OutroStory != null)
+            {
+                VNManager.Instance.ShowStory(Levels[NextLevel - 1].IntroStory, onEnd);
+            }
+            else
+            {
+                onEnd();
             }
         }
 

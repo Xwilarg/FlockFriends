@@ -356,15 +356,23 @@ MonoBehaviour:
   _intro: {fileID: 4900000, guid: d700cf88786ca5241b56b9ebcc1d0494, type: 3}
   _victoryPanel: {fileID: 891915889}
   _levels:
-  - IntroStory: {fileID: 4900000, guid: d700cf88786ca5241b56b9ebcc1d0494, type: 3}
+  - IntroStory: {fileID: 4900000, guid: 3d6f68cb7f337e44494bdbb7dab4e163, type: 3}
+    OutroStory: {fileID: 4900000, guid: 2eef1c1e78ebdbc46b595084bd48ea47, type: 3}
     UnlockedBird: 1
-  - IntroStory: {fileID: 0}
+  - IntroStory: {fileID: 4900000, guid: cd17f13ea1215bc419f3468a578c562d, type: 3}
+    OutroStory: {fileID: 4900000, guid: 038a49c0c8375d94e841c4342f13b71c, type: 3}
     UnlockedBird: 2
-  - IntroStory: {fileID: 0}
+  - IntroStory: {fileID: 4900000, guid: d8b170561432156498d3437ce910a003, type: 3}
+    OutroStory: {fileID: 4900000, guid: 15d7c8cf8be18d444ae10ea38f3a6f28, type: 3}
     UnlockedBird: 0
-  - IntroStory: {fileID: 0}
+  - IntroStory: {fileID: 4900000, guid: fb083c2ce43668b4397dc7334a395a44, type: 3}
+    OutroStory: {fileID: 4900000, guid: ef7f815fa04fa18409668e0e86b09a68, type: 3}
     UnlockedBird: 0
-  - IntroStory: {fileID: 0}
+  - IntroStory: {fileID: 4900000, guid: a9ecb6bed9f061540a520414f8d98508, type: 3}
+    OutroStory: {fileID: 4900000, guid: 766b88b3d85b37d40a07c581522046fa, type: 3}
+    UnlockedBird: 0
+  - IntroStory: {fileID: 4900000, guid: 759548165e7e88f47905ffbc39688af6, type: 3}
+    OutroStory: {fileID: 4900000, guid: fa4940721fda4654b9037abe471b6329, type: 3}
     UnlockedBird: 0
 --- !u!4 &460839552
 Transform:
