@@ -3,6 +3,7 @@ using TouhouJam.Persistency;
 using TouhouJam.VN;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace TouhouJam.Manager
 {
@@ -24,6 +25,12 @@ namespace TouhouJam.Manager
 
         [SerializeField]
         private AudioClip _bossBgm;
+
+        [SerializeField]
+        private Image _background;
+
+        [SerializeField]
+        private Sprite _mountain;
 
         public bool CanMove => !VNManager.Instance.IsPlayingStory && !DidWon;
 
@@ -73,6 +80,10 @@ namespace TouhouJam.Manager
             {
                 _bgm.clip = _bossBgm;
                 _bgm.Play();
+            }
+            if (NextLevel > 3)
+            {
+                _background.sprite = _mountain;
             }
             if (Levels[NextLevel - 1].IntroStory != null && !DebugManager.Instance.SkipIntro)
             {
