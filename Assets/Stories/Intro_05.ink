@@ -14,5 +14,6 @@ Maybe help us get the cart to the top of Youkai Mountain but being more careful.
 
 Alright! #speaker Okuu #emotion happy
 
-Okuu joins the flock. Use her to jump higher.
+Okuu joins the flock. You can shoot with her. Aim with Mouse and Left Click.
+Maybe even give rocket jumping a try by shooting the ground.
     -> END
