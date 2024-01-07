@@ -19,6 +19,12 @@ namespace TouhouJam.Manager
         private LevelInfo[] _levels;
         public LevelInfo[] Levels => _levels;
 
+        [SerializeField]
+        private AudioSource _bgm;
+
+        [SerializeField]
+        private AudioClip _bossBgm;
+
         public bool CanMove => !VNManager.Instance.IsPlayingStory && !DidWon;
 
         public bool DidWon => _victoryPanel.activeInHierarchy;
@@ -45,7 +51,7 @@ namespace TouhouJam.Manager
 
             if (Levels[NextLevel - 1].OutroStory != null)
             {
-                VNManager.Instance.ShowStory(Levels[NextLevel - 1].IntroStory, onEnd);
+                VNManager.Instance.ShowStory(Levels[NextLevel - 1].OutroStory, onEnd);
             }
             else
             {
@@ -62,9 +68,14 @@ namespace TouhouJam.Manager
 
         private void Start()
         {
+            if (NextLevel == 6)
+            {
+                _bgm.clip = _bossBgm;
+                _bgm.Play();
+            }
             if (Levels[NextLevel - 1].IntroStory != null && !DebugManager.Instance.SkipIntro)
             {
-                //VNManager.Instance.ShowStory(Levels[NextLevel - 1].IntroStory, null);
+                VNManager.Instance.ShowStory(Levels[NextLevel - 1].IntroStory, null);
             }
         }
 

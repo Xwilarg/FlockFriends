@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 using TouhouJam.Level;
 using UnityEngine.Tilemaps;
 using TouhouJam.Boss;
+using TouhouJam.VN;
 
 namespace TouhouJam.Player
 {
@@ -247,6 +248,16 @@ namespace TouhouJam.Player
                 currentBird.UseAbility();
                 ReloadAction(PlayerAction.UseAbility, currentBird.cooldownTime);
             }
+        }
+
+        public void OnToggleSkip(InputAction.CallbackContext value)
+        {
+            VNManager.Instance.OnToggleSkip(value);
+        }
+
+        public void OnNextDialogue(InputAction.CallbackContext value)
+        {
+            VNManager.Instance.OnNextDialogue(value);
         }
     }
 }

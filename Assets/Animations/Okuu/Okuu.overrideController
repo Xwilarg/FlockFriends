@@ -8,4 +8,10 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Okuu
   m_Controller: {fileID: 9100000, guid: ce86f88d4f87bcc428df1fe6b8fc009b, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 9f5e25da06c01504fbb15dee6617c09a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0bb697e0db061b04d9b60f8e70796cb4, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 0196124cd938e124694b8135df51ed35, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a9501d26fb997e64a99103570d458ebe, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c850dfcdff991d64d8e07ee744f4718d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 38ba1f910e427304d846cc98d51d907c, type: 2}
