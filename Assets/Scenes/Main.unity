@@ -373,6 +373,8 @@ MonoBehaviour:
   - IntroStory: {fileID: 4900000, guid: 759548165e7e88f47905ffbc39688af6, type: 3}
     OutroStory: {fileID: 4900000, guid: fa4940721fda4654b9037abe471b6329, type: 3}
     UnlockedBird: -1
+  _bgm: {fileID: 764479296}
+  _bossBgm: {fileID: 8300000, guid: bc26be15b8be6d842b26f0c00964d7ec, type: 3}
 --- !u!4 &460839552
 Transform:
   m_ObjectHideFlags: 0
