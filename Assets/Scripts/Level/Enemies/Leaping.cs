@@ -1,3 +1,4 @@
+using TouhouJam.Boss;
 using TouhouJam.Player;
 using UnityEngine;
 

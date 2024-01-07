@@ -35,12 +35,15 @@ namespace TouhouJam.Player
 				Raycast(ref minDistance, horizontal, direction, p, bb);
 			Raycast(ref minDistance, horizontal, direction, maxPos - 0.1f, bb);
 
+			var oldPos = transform.position;
+			Vector2 np2;
+
 			//if (float.IsFinite(minDistance)) {
 				minDistance -= horizontal ? bb.extents.x : bb.extents.y;
 				var rb = player.GetComponent<Rigidbody2D>();
 				
 				//col.enabled = false;
-				rb.MovePosition(rb.position + direction * minDistance);
+				rb.MovePosition(np2 = rb.position + direction * minDistance);
 				//col.enabled = true;
 				var vel = rb.velocity;
 				if (horizontal)
@@ -49,6 +52,16 @@ namespace TouhouJam.Player
 					vel.x = 0;
 				rb.velocity = vel;
 			//}
+
+			Vector3 newPos = new(np2.x, np2.y, oldPos.z);
+
+			if (Vector3.Distance(oldPos, newPos) > 0.5f) {
+				var ps = GetComponent<ParticleSystem>();
+				var shape = ps.shape;
+				shape.position = (newPos - oldPos) / 2;
+				shape.scale = horizontal ? new(Mathf.Abs(oldPos.x - newPos.x), 0.35f, 0) : new(0.35f, Mathf.Abs(oldPos.y - newPos.y), 0);
+				ps.Play();
+			}
 		}
 
 		private void Raycast(ref float minDistance, bool horizontal, Vector2 direction, float p, Bounds bb) {
