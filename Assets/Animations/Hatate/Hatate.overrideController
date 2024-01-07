@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hatate
+  m_Controller: {fileID: 9100000, guid: ce86f88d4f87bcc428df1fe6b8fc009b, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 9f5e25da06c01504fbb15dee6617c09a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 08701aa17182a6242904160a3034b691, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 0196124cd938e124694b8135df51ed35, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 477438cb64f76f943b77e8a03c0aaf9b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c850dfcdff991d64d8e07ee744f4718d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5fa0d751657c46f47bbbc0eb2913fb52, type: 2}
