@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Kutaka
   DisplayName: Kutaka
-  Sprite: {fileID: 21300000, guid: 22335da278f316f40a4123d31ecd984a, type: 3}
+  Sprite: {fileID: 21300000, guid: a7f10792bfbf9d040863c49a139b6336, type: 3}
