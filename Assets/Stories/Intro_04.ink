@@ -8,9 +8,9 @@ She heals her throat.
 
 Ah thank you. Maybe I can help you. #speaker Hatate #emotion happy
 
- By cancelling the the Kakashi Spirit News. #speaker Aya #emotion smug
+ By cancelling the Kakashi Spirit News. #speaker Aya #emotion smug
  
- No, by showing you that ghostly platforms exist #speaker Hatate #emotion happy
+ No, by showing you that the camera games were good. #speaker Hatate #emotion happy
  
  Hatate joins the flock. Take Photos of Danmaku to remove them, just like DS. 
  
