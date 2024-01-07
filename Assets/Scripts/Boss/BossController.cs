@@ -11,10 +11,17 @@ namespace TouhouJam.Boss
         private GameObject _bulletPrefab;
 
         private Rigidbody2D _rb;
+        private SpriteRenderer _sr;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+            _sr = GetComponent<SpriteRenderer>();
+        }
+
+        private void Update()
+        {
+            _sr.flipX = PlayerController.Instance.transform.position.x < transform.position.x;
         }
 
         private void Start()
