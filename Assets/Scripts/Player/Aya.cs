@@ -7,7 +7,7 @@ namespace TouhouJam.Player
 		const float RAY_STEP = 0.25f;
 
 		public override void UseAbility() {
-			Vector2 direction = player.InputDirection;
+			Vector2 direction = player.LastKnownDirection;
 
 			float absX = Mathf.Abs(direction.x), absY = Mathf.Abs(direction.y);
 			bool horizontal;
