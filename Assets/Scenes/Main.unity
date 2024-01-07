@@ -1288,7 +1288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enabled: 1
-  _startLevel: 4
+  _startLevel: 5
   _skipIntro: 1
 --- !u!1 &1049363155
 GameObject:
@@ -2214,6 +2214,10 @@ PrefabInstance:
     - target: {fileID: 3676888944838869982, guid: ae2b596a061b305488dd488254be8586, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3676888944838869987, guid: ae2b596a061b305488dd488254be8586, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3926159992580714759, guid: ae2b596a061b305488dd488254be8586, type: 3}
       propertyPath: m_Sprite
