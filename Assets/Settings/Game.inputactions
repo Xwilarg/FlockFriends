@@ -216,7 +216,7 @@
                 {
                     "name": "",
                     "id": "eff72b2f-7dff-48ab-b2ef-416631366517",
-                    "path": "<Keyboard>/ctrl",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",

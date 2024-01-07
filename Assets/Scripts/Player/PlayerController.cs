@@ -89,7 +89,7 @@ namespace TouhouJam.Player
         private void FixedUpdate()
         {
             // Ignore Y > 0
-            var actualDir = new Vector2(FloatDirection(InputDirection.x), InputDirection.y < 0f ? -1f : 0f).normalized;
+            var actualDir = new Vector2(FloatDirection(InputDirection.x), InputDirection.y < -0.7f ? -1f : 0f).normalized;
 
             var onFloor = IsOnGround;
 
