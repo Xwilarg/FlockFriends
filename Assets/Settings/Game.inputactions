@@ -209,7 +209,7 @@
                 {
                     "name": "",
                     "id": "2599c517-128e-4219-8147-3d78203b92c2",
-                    "path": "<Keyboard>/pageUp",
+                    "path": "<Keyboard>/ctrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
