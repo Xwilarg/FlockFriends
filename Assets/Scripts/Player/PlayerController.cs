@@ -28,7 +28,7 @@ namespace TouhouJam.Player
         public Vector2 Position { get => _rb.position; }
 
         // Jump info
-        private const float _jumpMaxDistance = 1.01f;
+        private const float _jumpMaxDistance = 1.25f;
         private const float _raycastXOffset = .45f;
         private readonly float[] _jumpOffsets = new[] { -_raycastXOffset, _raycastXOffset };
         private int _levelMask;
