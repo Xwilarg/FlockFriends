@@ -12,5 +12,7 @@ Ah thank you. Maybe I can help you. #speaker Hatate #emotion happy
  
  No, by showing you that ghostly platforms exist #speaker Hatate #emotion happy
  
- Hatate joins the flock. Use her to reveal ghostly Platforms.
+ Hatate joins the flock. Take Photos of Danmaku to remove them, just like DS. 
+ 
+ WARNING: When the next photo is captured, the previously photographed bullets are spawned in its place.
     -> END
