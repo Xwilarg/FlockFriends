@@ -5,10 +5,7 @@ namespace TouhouJam.Boss
 {
     public class Bullet : MonoBehaviour
     {
-        private void Awake()
-        {
-            Destroy(gameObject, 10f);
-        }
+        public float lifetime;
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -17,6 +14,12 @@ namespace TouhouJam.Boss
                 collision.collider.GetComponent<PlayerController>().Lose();
             }
             Destroy(gameObject);
+        }
+
+        void FixedUpdate() {
+            lifetime -= Time.fixedDeltaTime;
+            if (lifetime < 0)
+                Destroy(gameObject);
         }
     }
 }

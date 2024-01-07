@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace TouhouJam.Player.Prop
 {
@@ -10,7 +9,7 @@ namespace TouhouJam.Player.Prop
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            var contact = collision.contacts.First().point;
+            var contact = collision.contacts[0].point;
             var force = Vector2.Distance(contact, PlayerController.Instance.transform.position);
             if (force < _rocketImpactMaxDistance)
             {

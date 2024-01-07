@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TouhouJam.Level;
 using UnityEngine.Tilemaps;
+using TouhouJam.Boss;
 
 namespace TouhouJam.Player
 {
@@ -104,8 +105,10 @@ namespace TouhouJam.Player
             if (Position.y < _fallBoundaryY)
                 Lose();
 
-            _anim.SetFloat("X", onFloor ? Mathf.Abs(movX) : 0f);
-            _anim.SetFloat("Y", onFloor ? 0f : Mathf.Clamp01(_rb.velocity.y));
+            if (_anim) {
+                _anim.SetFloat("X", onFloor ? Mathf.Abs(movX) : 0f);
+                _anim.SetFloat("Y", onFloor ? 0f : Mathf.Clamp01(_rb.velocity.y));
+            }
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -130,6 +133,12 @@ namespace TouhouJam.Player
 
                 foreach (var agent in FindObjectsOfType<Agent>())
                     agent.OnReset();
+
+                foreach (var bullet in FindObjectsOfType<Bullet>())
+                    Destroy(bullet.gameObject);
+                
+                foreach (Transform stored in transform.Find("Hatate/Camera/Storage"))
+                    Destroy(stored.gameObject);
             }
         }
 

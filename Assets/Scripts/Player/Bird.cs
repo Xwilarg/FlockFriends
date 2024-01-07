@@ -19,7 +19,7 @@ namespace TouhouJam.Player
 
 		[NonSerialized]
 		new public SpriteRenderer renderer;
-		
+
 		public Animator Anim { private set; get; }
 
 		public void AnimateTransitionFrom() =>
@@ -34,7 +34,7 @@ namespace TouhouJam.Player
 		protected virtual void Awake() {
 			BirdEnum = (EBird)transform.GetSiblingIndex();
 			player = GetComponentInParent<PlayerController>();
-			renderer = GetComponentInChildren<SpriteRenderer>();
+			renderer = transform.Find("Sprite").GetComponent<SpriteRenderer>();
 			Anim = GetComponentInChildren<Animator>();
 			renderer.sprite = idle;
 		}
