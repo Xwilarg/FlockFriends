@@ -6,7 +6,7 @@ namespace TouhouJam.Player
 		Mystia,
 		Aya,
 		Kutaka,
-		//Hatate,
+		Hatate,
 		Okuu
 	}
 }
