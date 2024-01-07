@@ -12,6 +12,6 @@ Alright. Hey why don't you help out by helping me get up. #speaker Mystia #emopt
 I can fly over there faster then you can say AYAYAYA #speaker Aya #emotion excited 
 
 
-Aya Joins the flock. Use her to dash across the air.
+Aya Joins the flock. Use her to dash. Just point your arrow where you want her go and press X, it even works in the air.
 
 ->DONE
