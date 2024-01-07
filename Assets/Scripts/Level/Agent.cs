@@ -21,6 +21,7 @@ namespace TouhouJam.Level
 		public virtual void OnReset() {
 			rb.velocity = Vector2.zero;
 			rb.MovePosition(spawnPosition);
+			blind = false;
 		}
 	}
 }

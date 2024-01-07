@@ -7,6 +7,7 @@ using TouhouJam.SO;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TouhouJam.Level;
+using UnityEngine.Tilemaps;
 
 namespace TouhouJam.Player
 {
@@ -34,6 +35,8 @@ namespace TouhouJam.Player
 
         private Vector2 _initialPos;
 
+        private float _fallBoundaryY;
+
         private void Awake()
         {
             Instance = this;
@@ -45,6 +48,13 @@ namespace TouhouJam.Player
             {
                 _canDoAction.Add(action, true);
             }
+
+            foreach (var collider in FindObjectsOfType<TilemapCollider2D>())
+            {
+                _fallBoundaryY = Mathf.Min(_fallBoundaryY, collider.bounds.min.y);
+            }
+
+            _fallBoundaryY -= 25;
         }
 
         private void Start()
@@ -87,6 +97,9 @@ namespace TouhouJam.Player
             {
                 // For when one day this will be fixed
             }
+
+            if (Position.y < _fallBoundaryY)
+                Lose();
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
