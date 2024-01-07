@@ -73,7 +73,7 @@ namespace TouhouJam.Player
         {
             if (contactPoint.y < transform.position.y)
             {
-                _rb.velocity = new Vector2(_rb.velocity.x, Mathf.Abs(_rb.velocity.y));
+                _rb.velocity = new Vector2(_rb.velocity.x, Mathf.Abs(_rb.velocity.y)) / 1.5f;
             }
             _rb.AddForce(direction * force, ForceMode2D.Impulse);
         }
