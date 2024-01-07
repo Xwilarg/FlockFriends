@@ -23,6 +23,7 @@ namespace TouhouJam.Player
         private Animator _anim;
         private SpriteRenderer _sr;
         public Vector2 InputDirection { get; private set; }
+        public Vector2 LastKnownDirection { get; private set; } = Vector2.right;
         public Vector2 Position { get => _rb.position; }
 
         // Jump info
@@ -66,6 +67,16 @@ namespace TouhouJam.Player
             Destroy(GetComponent<SpriteRenderer>());
         }
 
+        // For rocket jump (Okuu)
+        public void AddPropulsionForce(float force, Vector2 direction, Vector2 contactPoint)
+        {
+            if (contactPoint.y < transform.position.y)
+            {
+                _rb.velocity = new Vector2(_rb.velocity.x, Mathf.Abs(_rb.velocity.y));
+            }
+            _rb.AddForce(direction * force, ForceMode2D.Impulse);
+        }
+
         private float FloatDirection(float x)
         {
             if (x == 0f) return 0f;
@@ -78,28 +89,23 @@ namespace TouhouJam.Player
             // Ignore Y > 0
             var actualDir = new Vector2(FloatDirection(InputDirection.x), InputDirection.y < 0f ? -1f : 0f).normalized;
 
+            var onFloor = IsOnGround;
+
             var movX = GameManager.Instance.CanMove ? actualDir.x : 0f;
 
             _rb.velocity = new(movX * _info.Speed, _rb.velocity.y + actualDir.y * 10f);
 
-            try
+            var isMoving = movX != 0f;
+            if (isMoving)
             {
-                var isMoving = movX != 0f;
-                if (isMoving)
-                {
-                    _sr.flipX = movX < 0f;
-                }
-
-                _anim.SetFloat("X", Mathf.Abs(movX));
-                _anim.SetFloat("Y", Mathf.Clamp01(_rb.velocity.y));
-            }
-            catch (Exception)
-            {
-                // For when one day this will be fixed
+                _sr.flipX = movX < 0f;
             }
 
             if (Position.y < _fallBoundaryY)
                 Lose();
+
+            _anim.SetFloat("X", onFloor ? Mathf.Abs(movX) : 0f);
+            _anim.SetFloat("Y", onFloor ? 0f : Mathf.Clamp01(_rb.velocity.y));
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -140,6 +146,10 @@ namespace TouhouJam.Player
         public void OnMove(InputAction.CallbackContext value)
         {
             InputDirection = value.ReadValue<Vector2>();
+            if (InputDirection.magnitude != 0f)
+            {
+                LastKnownDirection = InputDirection;
+            }
         }
 
         public void OnJump(InputAction.CallbackContext value)
@@ -192,6 +202,7 @@ namespace TouhouJam.Player
 
             currentBird = targetBird;
             _sr = currentBird.renderer;
+            _anim = currentBird.Anim;
         }
 
         public void OnGoNextBird(InputAction.CallbackContext ctx) {

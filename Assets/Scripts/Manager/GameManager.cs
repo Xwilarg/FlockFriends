@@ -13,9 +13,6 @@ namespace TouhouJam.Manager
         public static int NextLevel { set; get; } = 1;
 
         [SerializeField]
-        private TextAsset _intro;
-
-        [SerializeField]
         private GameObject _victoryPanel;
 
         [SerializeField]
