@@ -51,7 +51,8 @@ namespace TouhouJam.Manager
 
             if (Levels[NextLevel - 1].OutroStory != null)
             {
-                VNManager.Instance.ShowStory(Levels[NextLevel - 1].OutroStory, onEnd);
+                if (!DidWon)
+                    VNManager.Instance.ShowStory(Levels[NextLevel - 1].OutroStory, onEnd);
             }
             else
             {
