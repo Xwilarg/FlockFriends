@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,8 +14,12 @@ namespace TouhouJam.Player
 
 		public EBird BirdEnum { get; private set; }
 
+		[NonSerialized]
 		protected PlayerController player;
+
+		[NonSerialized]
 		new public SpriteRenderer renderer;
+		
 		public Animator Anim { private set; get; }
 
 		public void AnimateTransitionFrom() =>
