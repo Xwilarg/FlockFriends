@@ -31,7 +31,7 @@ namespace TouhouJam.Player.Prop
 		}
 
 		void FixedUpdate() {
-			flash.color = new(1, 1, 1, activeFor / 2f);
+			flash.color = new(1, 1, 1, activeFor / 4f);
 
 			if (activeFor != 0)
 				activeFor--;
