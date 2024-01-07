@@ -1,4 +1,6 @@
 -> intro
 == intro ==
-That's front page worthy. #speaker Hatate #emotion happy
+We murdered that Stage #speaker Hatate #emotion happy
+
+Murder is a flock of crows. Who says game jam games cant be teach you something.
     -> END
